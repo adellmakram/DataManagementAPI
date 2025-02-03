@@ -6,12 +6,12 @@
 
         public List<User> GetAllUsers()
         {
-            return _context.Users.ToList();
+            return _context.Users.AsNoTracking().ToList();
         }
 
         public User? GetUserById(int userId)
         {
-            return _context.Users.FirstOrDefault(u => u.UserId == userId);
+            return _context.Users.AsNoTracking().FirstOrDefault(u => u.UserId == userId);
         }
 
         public void AddUser(User user)

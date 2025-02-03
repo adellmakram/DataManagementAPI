@@ -27,32 +27,32 @@ public class UserManagementController(IUserService userService) : ControllerBase
     }
 
     [HttpPost("CreateUser")]
-    public ActionResult<string> CreateUser(CreateUserDto createUserDto)
+    public ActionResult<MessageResponse> CreateUser(CreateUserDto createUserDto)
     {
-        GenericResponse<string> response = _userService.CreateUser(createUserDto);
+        GenericResponse<MessageResponse> response = _userService.CreateUser(createUserDto);
         if (response.Status == ResponseStatus.Fail)
             return BadRequest(response.ResponseText);
 
-        return Ok(response.ResponseText);
+        return Ok(response.ResponseObject);
     }
 
     [HttpPost("UpdateUser")]
-    public ActionResult<string> UpdateUser(UpdateUserDto updateUserDto)
+    public ActionResult<MessageResponse> UpdateUser(UpdateUserDto updateUserDto)
     {
-        GenericResponse<string> response = _userService.UpdateUser(updateUserDto);
+        GenericResponse<MessageResponse> response = _userService.UpdateUser(updateUserDto);
         if (response.Status == ResponseStatus.Fail)
             return BadRequest(response.ResponseText);
 
-        return Ok(response.ResponseText);
+        return Ok(response.ResponseObject);
     }
 
     [HttpPost("DeleteUser")]
-    public ActionResult<string> DeleteUser(int id)
+    public ActionResult<MessageResponse> DeleteUser(int id)
     {
-        GenericResponse<string> response = _userService.DeleteUser(id);
+        GenericResponse<MessageResponse> response = _userService.DeleteUser(id);
         if (response.Status == ResponseStatus.Fail)
             return BadRequest(response.ResponseText);
 
-        return Ok(response.ResponseText);
+        return Ok(response.ResponseObject);
     }
 }

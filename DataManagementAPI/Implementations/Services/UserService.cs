@@ -43,7 +43,7 @@ public class UserService(IUserRepo userRepository, IMapper mapper) : IUserServic
             ResponseText = "User Data Returned Successfully"
         };
     }
-    public GenericResponse<string> CreateUser(CreateUserDto createUserDto)
+    public GenericResponse<MessageResponse> CreateUser(CreateUserDto createUserDto)
     {
         User user = _mapper.Map<User>(createUserDto);
         _userRepository.AddUser(user);
@@ -51,10 +51,10 @@ public class UserService(IUserRepo userRepository, IMapper mapper) : IUserServic
         return new()
         {
             Status = ResponseStatus.Success,
-            ResponseText = "User Created Successfully"
+            ResponseObject = new() { Messgae = "User Created Successfully" }
         };
     }
-    public GenericResponse<string> UpdateUser(UpdateUserDto updateUserDto)
+    public GenericResponse<MessageResponse> UpdateUser(UpdateUserDto updateUserDto)
     {
         User user = _mapper.Map<User>(updateUserDto);
 
@@ -76,17 +76,23 @@ public class UserService(IUserRepo userRepository, IMapper mapper) : IUserServic
         return new()
         {
             Status = ResponseStatus.Success,
-            ResponseText = "User Updated Successfully"
+            ResponseObject = new()
+            {
+                Messgae = "User Updated Successfully"
+            }
         };
     }
-    public GenericResponse<string> DeleteUser(int userId)
+    public GenericResponse<MessageResponse> DeleteUser(int userId)
     {
         _userRepository.DeleteUser(userId);
 
         return new()
         {
             Status = ResponseStatus.Success,
-            ResponseText = "User Deleted Successfully"
+            ResponseObject = new()
+            {
+                Messgae = "User Deleted Successfully"
+            }
         };
     }
 }
