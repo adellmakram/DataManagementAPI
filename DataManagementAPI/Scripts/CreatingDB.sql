@@ -1,0 +1,10 @@
+CREATE DATABASE DataManagementDB;
+
+USE DataManagementDB;
+CREATE TABLE user (
+    UserId INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(50) UNIQUE NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Password VARCHAR(255) NOT NULL
+);

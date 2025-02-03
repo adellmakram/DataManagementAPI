@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using DataManagementAPI.Data.Context;
+global using DataManagementAPI.Data.Dtos;
+global using DataManagementAPI.Data.Enums;
+global using DataManagementAPI.Data.Models;
+global using DataManagementAPI.Helpers;
+global using DataManagementAPI.Implementations.Repos;
+global using DataManagementAPI.Implementations.Services;
+global using DataManagementAPI.Interfaces.IRepos;
+global using DataManagementAPI.Interfaces.IServices;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
